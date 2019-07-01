@@ -3,6 +3,7 @@ package com.example.spring01.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.example.spring01.model.dto.MemberDTO;
 import com.example.spring01.service.MemberService;
@@ -81,6 +83,32 @@ public class MemberController {
 		}
 		
 	}
+	
+	@RequestMapping("member/login.do")
+	public String login() {
+		return "member/login";
+	}
+	@RequestMapping("member/login_check.do")
+	public ModelAndView login_check(@ModelAttribute MemberDTO dto,HttpSession session) {
+		ModelAndView mav = new ModelAndView(); 
+		String name = memberService.loginCheck(dto, session);
+		if(name != null) {
+			mav.setViewName("home");
+		}else {
+			mav.setViewName("member/login");
+			mav.addObject("message", "error");
+		}
+		return mav;
+	}
+	@RequestMapping("member/logout.do")
+	public ModelAndView logout(HttpSession session, ModelAndView mav) {
+		memberService.logout(session);
+		mav.setViewName("member/login");
+		mav.addObject("message", "logout");
+		return mav;
+		
+	}
+	
 }
 	
 	/*	

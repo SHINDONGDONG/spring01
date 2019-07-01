@@ -12,4 +12,5 @@ public interface MemberDAO {
 	public void deleteMember(String userid);
 	public void updateMember(MemberDTO vo);
 	public boolean checkPw(String userid,String passwd);
+	public String loginCheck(MemberDTO dto);
 }

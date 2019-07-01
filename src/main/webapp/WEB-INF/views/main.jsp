@@ -10,7 +10,12 @@
 <body>
 <%@ include file="include/menu.jsp" %>
 
-<h1>${message}</h1>
-
+<c:if test="${sessionScope.userid != null}">
+	<h1>${message}</h1>
+	<h2>
+		${sessionScope.name} (${sessionScope.userid}) 
+		님의 방문을 환영합니다.
+	</h2>
+</c:if>
 </body>
 </html>

@@ -103,6 +103,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	update member set passwd=#{passwd},name=#{name},email=#{email}
 	where userid=#{userid}
 	</update>
+	
+	<select id="login_check"
+	resultType="String">
+	SELECT userid FROM member
+	WHERE userid=#{userid} and passwd=#{passwd}
+	</select>
 </mapper>
 
 
