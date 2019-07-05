@@ -31,7 +31,7 @@
 				</tr>
 				<tr>
 					<td colspan="2">
-						<form name="form1 method="post"
+						<form name="form1" method="post"
 						action="${path}/shop/cart/insert.do">
 						<input type="hidden" name="product_id"
 						value="${product_id}">

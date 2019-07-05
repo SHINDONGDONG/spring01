@@ -11,7 +11,8 @@
 	<a href="${path }/test.do">테스트</a> |
 	<a href="${path }/member/list1.do">회원관리</a> |
 	<a href="${path }/upload/uploadForm">파일업로드 테스트</a> |
-	<a href="${path }/shop/product/list.do">상품목록</a>
+	<a href="${path }/shop/product/list.do">상품목록</a> |
+	<a href="${path }/shop/cart/list.do">장바구니</a> 
 	
 	<div style="text-align:right;">
 	<c:choose>
